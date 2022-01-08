@@ -2,7 +2,10 @@ package util;
 
 public interface Constant {
 
-	String QUEUE = "MacyJsonQueue";
+	String QUEUE_XML = "MacyXmlQueue";
+	String QUEUE_JSON = "MacyJsonQueue";
 	String EXCHANGE = "MacyExchange";
-	String ROUTING_KEY = "MacyRoutingKey";
+	String ROUTING_JSON_KEY = "MacyRoutingJsonKey";
+	String ROUTING_XML_KEY = "MacyRoutingXmlKey";
+
 }

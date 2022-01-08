@@ -1,7 +1,8 @@
 package com.macy.controller;
 
 import static util.Constant.EXCHANGE;
-import static util.Constant.ROUTING_KEY;
+import static util.Constant.ROUTING_JSON_KEY;
+import static util.Constant.ROUTING_XML_KEY;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ProducerController {
 	
 	@Autowired
 	RabbitTemplate rabbitTemplate;
-	
+		
 
 	@ApiOperation(value = "Order as Json Input")
 	@PostMapping(value = "order/json", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
@@ -31,8 +32,8 @@ public class ProducerController {
 	public String getOrderInJson(@RequestBody OrderJsonDto order) {
 
 		OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
-		rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY, statusObj);
-		return "Success !!";
+		rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_JSON_KEY, statusObj);
+		return "Success Json !!";
 
 	}
 
@@ -42,8 +43,8 @@ public class ProducerController {
 	public String getOrderInXml(@RequestBody FulFillmentOrder order) {
 
 		OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
-		rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY, statusObj);
-		return "Success !!";
+		rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_XML_KEY, statusObj);
+		return "Success XML !!";
 
 	}
 

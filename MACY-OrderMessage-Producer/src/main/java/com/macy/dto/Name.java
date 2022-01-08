@@ -7,6 +7,9 @@ public class Name {
 	private int seperatorName0;
 	private int seperatorName1;
 
+	public Name() {
+	}
+
 	public Name(String firstName, String lastName, int seperatorName0, int seperatorName1) {
 		super();
 		this.firstName = firstName;
