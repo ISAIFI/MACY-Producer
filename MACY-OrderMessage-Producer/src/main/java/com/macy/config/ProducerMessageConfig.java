@@ -25,7 +25,7 @@ public class ProducerMessageConfig {
 	@Bean
 	public Queue queueJson() {
 
-		return new Queue(QUEUE_JSON);
+		return new Queue(QUEUE_JSON, true);
 	}
 
 	@Bean
@@ -59,6 +59,8 @@ public class ProducerMessageConfig {
 
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setMessageConverter(converterXml());
+		rabbitTemplate.setRoutingKey(ROUTING_XML_KEY);
+		rabbitTemplate.setDefaultReceiveQueue(QUEUE_XML);	
 		return rabbitTemplate;
 	}
 	
@@ -66,7 +68,10 @@ public class ProducerMessageConfig {
 	public AmqpTemplate templateJson(ConnectionFactory connectionFactory) {
 
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+		rabbitTemplate.setRoutingKey(ROUTING_JSON_KEY);
+		rabbitTemplate.setDefaultReceiveQueue(QUEUE_JSON);	
 		rabbitTemplate.setMessageConverter(converterJson());
+		
 		return rabbitTemplate;
 	}
 
@@ -79,7 +84,7 @@ public class ProducerMessageConfig {
 	@Bean
 	public Queue queueXml() {
 
-		return new Queue(QUEUE_XML);
+		return new Queue(QUEUE_XML, true);
 	}
 
 }

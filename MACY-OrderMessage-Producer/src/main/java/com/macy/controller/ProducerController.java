@@ -4,6 +4,7 @@ import static util.Constant.EXCHANGE;
 import static util.Constant.ROUTING_JSON_KEY;
 import static util.Constant.ROUTING_XML_KEY;
 
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
