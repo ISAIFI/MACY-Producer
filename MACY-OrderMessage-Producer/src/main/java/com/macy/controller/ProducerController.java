@@ -23,8 +23,9 @@ import io.swagger.annotations.ApiOperation;
 public class ProducerController {
 	
 	@Autowired
-	RabbitTemplate rabbitTemplate;
-		
+	RabbitTemplate rabbitJsonTemplate;
+	@Autowired
+	RabbitTemplate rabbitXmlTemplate;
 
 	@ApiOperation(value = "Order as Json Input")
 	@PostMapping(value = "order/json", consumes = { MediaType.APPLICATION_JSON_VALUE }, produces = {
@@ -32,7 +33,7 @@ public class ProducerController {
 	public String getOrderInJson(@RequestBody OrderJsonDto order) {
 
 		OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
-		rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_JSON_KEY, statusObj);
+		rabbitJsonTemplate.convertAndSend(EXCHANGE, ROUTING_JSON_KEY, statusObj);
 		return "Success Json !!";
 
 	}
@@ -43,7 +44,7 @@ public class ProducerController {
 	public String getOrderInXml(@RequestBody FulFillmentOrder order) {
 
 		OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
-		rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_XML_KEY, statusObj);
+		rabbitXmlTemplate.convertAndSend(EXCHANGE, ROUTING_XML_KEY, statusObj);
 		return "Success XML !!";
 
 	}

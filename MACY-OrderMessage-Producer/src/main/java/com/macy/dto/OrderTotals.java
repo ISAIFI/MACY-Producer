@@ -1,6 +1,8 @@
 package com.macy.dto;
 
-public class OrderTotals {
+import java.io.Serializable;
+
+public class OrderTotals implements Serializable{
 
 	private double totalPurchaseAmount;
 	private double seperatorOrderTotals0;

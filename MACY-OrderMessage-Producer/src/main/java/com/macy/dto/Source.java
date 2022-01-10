@@ -1,6 +1,8 @@
 package com.macy.dto;
 
-public class Source {
+import java.io.Serializable;
+
+public class Source implements Serializable{
 
 	private String clientId;
 	private String subClientID;

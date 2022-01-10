@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;;
 
 @Configuration
-public class MessagingConfig {
+public class ProducerMessageConfig {
 
 	@Bean
 	public Queue queueJson() {
@@ -43,9 +43,25 @@ public class MessagingConfig {
 	@Bean
 	public MessageConverter converterJson() {
 
+		return new Jackson2JsonMessageConverter();
+	}
+
+	
+	@Bean
+	public MessageConverter converterXml() {
+
 		return new Jackson2XmlMessageConverter();
 	}
 
+	
+	@Bean
+	public AmqpTemplate templatXml(ConnectionFactory connectionFactory) {
+
+		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+		rabbitTemplate.setMessageConverter(converterXml());
+		return rabbitTemplate;
+	}
+	
 	@Bean
 	public AmqpTemplate templateJson(ConnectionFactory connectionFactory) {
 

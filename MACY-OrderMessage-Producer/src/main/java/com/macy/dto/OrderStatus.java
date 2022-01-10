@@ -1,6 +1,8 @@
 package com.macy.dto;
 
-public class OrderStatus {
+import java.io.Serializable;
+
+public class OrderStatus implements Serializable{
 
 	private FulFillmentOrder orderXml;
 	private OrderJsonDto order;

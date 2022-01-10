@@ -1,10 +1,12 @@
 package com.macy.dto;
 
+import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel("Address Model")
-public class Address {
+public class Address implements Serializable{
 
 	@ApiModelProperty("Customer Address Line1")
 	private String line1;

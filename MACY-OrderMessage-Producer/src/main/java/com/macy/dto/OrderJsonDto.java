@@ -1,10 +1,12 @@
 package com.macy.dto;
 
+import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 @ApiModel("Producer Order Model")
-public class OrderJsonDto {
+public class OrderJsonDto implements Serializable{
 	
 	@ApiModelProperty("Id of Order")
 	private int id;

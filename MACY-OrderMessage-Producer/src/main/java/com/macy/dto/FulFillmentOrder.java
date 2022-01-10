@@ -1,6 +1,8 @@
 package com.macy.dto;
 
-public class FulFillmentOrder {
+import java.io.Serializable;
+
+public class FulFillmentOrder implements Serializable{
 
 	private int orderID;
 	private String orderTypeCode;
