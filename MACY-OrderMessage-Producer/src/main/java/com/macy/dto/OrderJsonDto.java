@@ -144,7 +144,7 @@ public class OrderJsonDto implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "OrderProducerDto [messageName=" + messageName + ", command=" + command + ", itemName=" + itemName
+		return "OrderProducerDto [id=" + id +", messageName=" + messageName + ", command=" + command + ", itemName=" + itemName
 				+ ", itemDescription=" + itemDescription + ", itemLength=" + itemLength + ", itemWidth=" + itemWidth
 				+ ", itemHeight=" + itemHeight + ", itemWeight=" + itemWeight + ", imagePathname=" + imagePathname
 				+ ", rfidTagged=" + rfidTagged + ", storageAttribute=" + storageAttribute + ", pickType=" + pickType
