@@ -33,8 +33,8 @@ public class ProducerController {
 			MediaType.APPLICATION_JSON_VALUE })
 	public String getOrderInJson(@RequestBody OrderJsonDto order) {
 
-		OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
-		rabbitJsonTemplate.convertAndSend(EXCHANGE, ROUTING_JSON_KEY, statusObj);
+		//OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
+		rabbitJsonTemplate.convertAndSend(EXCHANGE, ROUTING_JSON_KEY, order);
 		return "Success Json !!";
 
 	}
@@ -42,10 +42,10 @@ public class ProducerController {
 	@ApiOperation(value = "Order as xml Input")
 	@PostMapping(value = "order/xml",consumes = { MediaType.APPLICATION_XML_VALUE }, produces = { 
 					MediaType.APPLICATION_JSON_VALUE })
-	public String getOrderInXml(@RequestBody FulFillmentOrder order) {
+	public String getOrderInXml(@RequestBody FulFillmentOrder fulFillmentOrder) {
 
-		OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
-		rabbitXmlTemplate.convertAndSend(EXCHANGE, ROUTING_XML_KEY, statusObj);
+		//OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
+		rabbitXmlTemplate.convertAndSend(EXCHANGE, ROUTING_XML_KEY, fulFillmentOrder);
 		return "Success XML !!";
 
 	}

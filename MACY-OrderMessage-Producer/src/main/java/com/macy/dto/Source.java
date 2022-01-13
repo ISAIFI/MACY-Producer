@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Source implements Serializable{
 
-	private String clientId;
+	private String clientID;
 	private String subClientID;
 	private String sellingChannelCode;
 	private String seperatorSource0;
@@ -13,22 +13,22 @@ public class Source implements Serializable{
 	public Source() {
 	}
 
-	public Source(String clientId, String subClientID, String sellingChannelCode, String seperatorSource0,
+	public Source(String clientID, String subClientID, String sellingChannelCode, String seperatorSource0,
 			String separatorSource1) {
 		super();
-		this.clientId = clientId;
+		this.clientID = clientID;
 		this.subClientID = subClientID;
 		this.sellingChannelCode = sellingChannelCode;
 		this.seperatorSource0 = seperatorSource0;
 		this.separatorSource1 = separatorSource1;
 	}
 
-	public String getClientId() {
-		return clientId;
+	public String getClientID() {
+		return clientID;
 	}
 
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
+	public void setClientID(String clientId) {
+		this.clientID = clientId;
 	}
 
 	public String getSubClientID() {
@@ -65,7 +65,7 @@ public class Source implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Source [clientId=" + clientId + ", subClientID=" + subClientID + ", sellingChannelCode="
+		return "Source [clientID=" + clientID + ", subClientID=" + subClientID + ", sellingChannelCode="
 				+ sellingChannelCode + ", seperatorSource0=" + seperatorSource0 + ", separatorSource1="
 				+ separatorSource1 + "]";
 	}
