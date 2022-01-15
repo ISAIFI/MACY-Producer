@@ -7,7 +7,7 @@ public class FulFillmentOrder implements Serializable{
 	private int orderID;
 	private String orderTypeCode;
 	private String partnerOrderID;
-	private String orderStatus;
+	private OrderStatus orderStatus = OrderStatus.CREATED;
 	private String messageCreateTimeStamp;
 	private String fulfillmentChannelCode;
 	private int orderStatusCode;
@@ -21,7 +21,7 @@ public class FulFillmentOrder implements Serializable{
 	public FulFillmentOrder() {
 	}
 
-	public FulFillmentOrder(int orderID, String orderTypeCode, String partnerOrderID, String orderStatus,
+	public FulFillmentOrder(int orderID, String orderTypeCode, String partnerOrderID, OrderStatus orderStatus,
 			String messageCreateTimeStamp, String fulfillmentChannelCode, int orderStatusCode,
 			String orderStatusDescription, int sellZLDivisionNbr, int sellZLLocationNbr, Source source,
 			OrderTotals orderTotals, Contact contact) {
@@ -65,11 +65,11 @@ public class FulFillmentOrder implements Serializable{
 		this.partnerOrderID = partnerOrderID;
 	}
 
-	public String getOrderStatus() {
+	public OrderStatus getOrderStatus() {
 		return orderStatus;
 	}
 
-	public void setOrderStatus(String orderStatus) {
+	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 
