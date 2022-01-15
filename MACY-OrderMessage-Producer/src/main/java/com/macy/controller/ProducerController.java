@@ -4,7 +4,6 @@ import static util.Constant.EXCHANGE;
 import static util.Constant.ROUTING_JSON_KEY;
 import static util.Constant.ROUTING_XML_KEY;
 
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.macy.dto.FulFillmentOrder;
 import com.macy.dto.OrderJsonDto;
-import com.macy.dto.OrderStatus;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -33,7 +31,6 @@ public class ProducerController {
 			MediaType.APPLICATION_JSON_VALUE })
 	public String getOrderInJson(@RequestBody OrderJsonDto order) {
 
-		//OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
 		rabbitJsonTemplate.convertAndSend(EXCHANGE, ROUTING_JSON_KEY, order);
 		return "Success Json !!";
 
@@ -44,7 +41,6 @@ public class ProducerController {
 					MediaType.APPLICATION_JSON_VALUE })
 	public String getOrderInXml(@RequestBody FulFillmentOrder fulFillmentOrder) {
 
-		//OrderStatus statusObj = new OrderStatus(order, "Created", "Order place successfully");
 		rabbitXmlTemplate.convertAndSend(EXCHANGE, ROUTING_XML_KEY, fulFillmentOrder);
 		return "Success XML !!";
 
