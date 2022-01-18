@@ -6,6 +6,7 @@ import static util.Constant.ROUTING_XML_KEY;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,8 +23,10 @@ import io.swagger.annotations.ApiOperation;
 public class ProducerController {
 	
 	@Autowired
+	@Qualifier("jsonTemplate")
 	RabbitTemplate rabbitJsonTemplate;
 	@Autowired
+	@Qualifier("xmlTemplate")
 	RabbitTemplate rabbitXmlTemplate;
 
 	@ApiOperation(value = "Order as Json Input")

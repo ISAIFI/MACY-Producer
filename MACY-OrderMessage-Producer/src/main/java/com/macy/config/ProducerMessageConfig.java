@@ -54,8 +54,8 @@ public class ProducerMessageConfig {
 	}
 
 	
-	@Bean
-	public AmqpTemplate templatXml(ConnectionFactory connectionFactory) {
+	@Bean(name = "xmlTemplate")
+	public RabbitTemplate templatXml(ConnectionFactory connectionFactory) {
 
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setMessageConverter(converterXml());
@@ -64,8 +64,8 @@ public class ProducerMessageConfig {
 		return rabbitTemplate;
 	}
 	
-	@Bean
-	public AmqpTemplate templateJson(ConnectionFactory connectionFactory) {
+	@Bean(name = "jsonTemplate")
+	public RabbitTemplate templateJson(ConnectionFactory connectionFactory) {
 
 		final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
 		rabbitTemplate.setRoutingKey(ROUTING_JSON_KEY);
